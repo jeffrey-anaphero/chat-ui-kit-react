@@ -35,6 +35,7 @@
     "react": "^16.12.0 || ^17.0.0 || ^18.2.0",
     "react-dom": "^16.12.0 || ^17.0.0 || ^18.2.0"
   },
+
   "devDependencies": {
     "@babel/cli": "7.10.5",
     "@babel/core": "7.11.4",
@@ -102,47 +103,6 @@
     "src/**/*.d.ts"
   ],
   "publishConfig": {
-    "access": "public"
-  },
-  "release": {
-    "plugins": [
-      [
-        "@semantic-release/commit-analyzer",
-        {
-          "preset": "angular",
-          "releaseRules": [
-            {
-              "type": "docs",
-              "scope": "readme",
-              "release": "patch"
-            },
-            {
-              "scope": "no-release",
-              "release": false
-            }
-          ]
-        }
-      ],
-      "@semantic-release/release-notes-generator",
-      [
-        "@semantic-release/changelog",
-        {
-          "changelogFile": "CHANGELOG.md",
-          "changelogTitle": "# @chatscope/chat-ui-kit-react changelog"
-        }
-      ],
-      "@semantic-release/github",
-      "@semantic-release/npm",
-      [
-        "@semantic-release/git",
-        {
-          "assets": [
-            "package.json",
-            "CHANGELOG.md"
-          ],
-          "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
-        }
-      ]
-    ]
+    "@jeffrey-anaphero:registry": "https://npm.pkg.github.com"
   }
 }
