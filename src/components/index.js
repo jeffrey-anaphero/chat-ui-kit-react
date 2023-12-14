@@ -19,6 +19,7 @@ export { default as TypingIndicator } from "./TypingIndicator";
 export { default as Loader } from "./Loader";
 export { default as Overlay } from "./Overlay";
 export { default as StatusList } from "./StatusList";
+export { default as ChatSuggestions } from "./ChatSuggestions";
 
 // Buttons
 export { default as Buttons } from "./Buttons";

@@ -7,6 +7,7 @@ import InputToolbox from "../InputToolbox";
 import classNames from "classnames";
 import { prefix } from "../settings";
 import PropTypes from "prop-types";
+import ChatSuggestions from "../ChatSuggestions/ChatSuggestions";
 
 export const ChatContainer = ({ children, className, ...rest }) => {
   const cName = `${prefix}-chat-container`;
@@ -14,22 +15,27 @@ export const ChatContainer = ({ children, className, ...rest }) => {
   const [
     header,
     messageList,
+    chatSuggestions,
     messageInput,
     inputToolbox,
   ] = getChildren(children, [
     ConversationHeader,
     MessageList,
+    ChatSuggestions,
     MessageInput,
     InputToolbox,
   ]);
 
   return (
-    <div {...rest} className={classNames(cName, className)}>
-      {header}
-      {messageList}
-      {messageInput}
-      {inputToolbox}
-    </div>
+    <>
+      <div {...rest} className={classNames(cName, className)}>
+        {header}
+        {messageList}
+        {chatSuggestions}
+        {messageInput}
+        {inputToolbox}
+      </div>
+    </>
   );
 };
 
@@ -46,6 +52,7 @@ ChatContainer.propTypes = {
   children: allowedChildren([
     ConversationHeader,
     MessageList,
+    ChatSuggestions,
     MessageInput,
     InputToolbox,
   ]),
