@@ -20,7 +20,7 @@ export { default as Loader } from "./Loader";
 export { default as Overlay } from "./Overlay";
 export { default as StatusList } from "./StatusList";
 export { default as ChatSuggestions } from "./ChatSuggestions";
-
+export { default as MessageCountInfo } from "./MessageCountInfo";
 // Buttons
 export { default as Buttons } from "./Buttons";
 export { default as Button } from "./Buttons/Button";

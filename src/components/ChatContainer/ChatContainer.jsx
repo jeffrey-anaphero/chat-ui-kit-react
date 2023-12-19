@@ -8,7 +8,7 @@ import classNames from "classnames";
 import { prefix } from "../settings";
 import PropTypes from "prop-types";
 import ChatSuggestions from "../ChatSuggestions/ChatSuggestions";
-
+import MessageCountInfo from "../MessageCountInfo/MessageCountInfo";
 export const ChatContainer = ({ children, className, ...rest }) => {
   const cName = `${prefix}-chat-container`;
 
@@ -16,12 +16,14 @@ export const ChatContainer = ({ children, className, ...rest }) => {
     header,
     messageList,
     chatSuggestions,
+    messageCountInfo,
     messageInput,
     inputToolbox,
   ] = getChildren(children, [
     ConversationHeader,
     MessageList,
     ChatSuggestions,
+    MessageCountInfo,
     MessageInput,
     InputToolbox,
   ]);
@@ -32,6 +34,7 @@ export const ChatContainer = ({ children, className, ...rest }) => {
         {header}
         {messageList}
         {chatSuggestions}
+        {messageCountInfo}
         {messageInput}
         {inputToolbox}
       </div>
@@ -53,6 +56,7 @@ ChatContainer.propTypes = {
     ConversationHeader,
     MessageList,
     ChatSuggestions,
+    MessageCountInfo,
     MessageInput,
     InputToolbox,
   ]),
