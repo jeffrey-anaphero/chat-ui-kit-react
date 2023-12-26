@@ -9,45 +9,33 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const cName = `${prefix}-chat-suggestions`;
 const cNameButton = `${prefix}-chat-suggestions-button`;
 
-function ChatSuggestions({ className, handleUserMessage }) {
+function ChatSuggestions({ className, handleUserMessage, suggestions = [] }) {
   const handleButtonClick = (e) => {
     handleUserMessage(e.target.value);
   };
+
+  const suggestionsListReact =
+    suggestions.length > 0
+      ? suggestions.map((suggestedQuestion, i) => (
+          <Button
+            key={i}
+            onClick={handleButtonClick}
+            value={suggestedQuestion}
+            border={true}
+            className={classNames(cNameButton, className)}
+          >
+            {suggestedQuestion}
+          </Button>
+        ))
+      : null;
   return (
-    <div className={classNames(cName, className)}>
-      <Button
-        onClick={handleButtonClick}
-        value="Help me with a diagnosis"
-        border={true}
-        className={classNames(cNameButton, className)}
-      >
-        Help me with a diagnosis
-      </Button>
-      <Button
-        onClick={handleButtonClick}
-        value="Help me evaluate lab results"
-        border={true}
-        className={classNames(cNameButton, className)}
-      >
-        Help me evaluate lab results
-      </Button>
-      <Button
-        onClick={handleButtonClick}
-        value="Help me with a clinical plan"
-        border={true}
-        className={classNames(cNameButton, className)}
-      >
-        Help me with a clinical plan
-      </Button>
-      <Button
-        onClick={handleButtonClick}
-        value="Help me with medication selection"
-        border={true}
-        className={classNames(cNameButton, className)}
-      >
-        Help me with medication selection
-      </Button>
-    </div>
+    <>
+      {suggestions.length > 0 && (
+        <div className={classNames(cName, className)}>
+          {suggestionsListReact}
+        </div>
+      )}
+    </>
   );
 }
 
